@@ -2,169 +2,536 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Maker Garage Marketplace</title>
-  <meta name="description" content="Maker Garage is a marketplace for creative projects, digital files, services, and custom project requests.">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Maker Garage | Marketplace for Makers</title>
+
+  <meta
+    name="description"
+    content="Maker Garage is an online marketplace for DIY projects, digital files, custom builds, maker services, robotics, CNC projects, and creative work."
+  >
 
   <style>
+    :root {
+      --dark: #111827;
+      --darker: #0b1220;
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --success-bg: #ecfdf5;
+      --success-text: #065f46;
+    }
+
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #1f2937;
-      background: #f8fafc;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
       line-height: 1.7;
     }
 
+    a {
+      color: var(--primary);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(17, 24, 39, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--white);
+      font-size: 21px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
     header {
-      background: #111827;
-      color: white;
+      background:
+        radial-gradient(circle at top right, #312e81, transparent 36%),
+        linear-gradient(135deg, var(--darker), var(--dark));
+      color: var(--white);
       text-align: center;
-      padding: 80px 20px;
+      padding: 95px 20px;
     }
 
     header h1 {
-      margin: 0 0 15px;
-      font-size: 48px;
+      margin: 0 0 18px;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1.1;
     }
 
     header p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 19px;
+      max-width: 780px;
+      margin: 0 auto 30px;
+      font-size: 20px;
       color: #d1d5db;
     }
 
+    .badge {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      color: #e0e7ff;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 14px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 9px;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hero-button:hover {
+      background: var(--primary-dark);
+    }
+
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 45px 20px;
     }
 
     section {
-      background: white;
-      margin-bottom: 22px;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      background: var(--white);
+      margin-bottom: 24px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
     }
 
     h2 {
       margin-top: 0;
-      color: #111827;
+      color: var(--dark);
+      font-size: 28px;
+    }
+
+    h3 {
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .notice {
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f8fafc;
+    }
+
+    .policy-list {
+      padding-left: 22px;
+    }
+
+    .policy-list li {
+      margin-bottom: 9px;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 18px;
+      border-radius: 9px;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
     }
 
     footer {
       text-align: center;
-      padding: 35px 20px;
-      background: #111827;
+      padding: 38px 20px;
+      background: var(--dark);
       color: #d1d5db;
     }
 
-    a {
-      color: #4f46e5;
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 760px) {
+      .nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      header {
+        padding: 70px 18px;
+      }
+
+      header p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 23px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+  <div class="nav-container">
+    <a class="brand" href="#top">Maker Garage</a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#refunds">Refunds</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="badge">Operated by Brandloom LLC</div>
+
   <h1>Maker Garage</h1>
+
   <p>
-    A marketplace where makers can publish, discover, buy, and sell
-    creative projects, digital files, services, and custom project requests.
+    An online marketplace where makers can publish, discover, buy,
+    and sell creative projects, digital files, custom builds,
+    maker services, and custom project requests.
   </p>
+
+  <a class="hero-button" href="#about">Learn More</a>
 </header>
 
 <main>
 
-  <section>
+  <section id="about">
     <h2>About Maker Garage</h2>
+
     <p>
-      Maker Garage connects creators, builders, and customers interested in
-      DIY projects, robotics, CNC projects, digital plans, custom builds,
-      and other creative work.
+      Maker Garage connects creators, builders, sellers, and customers
+      interested in DIY projects, robotics, electronics, CNC projects,
+      digital plans, custom builds, prototypes, and other creative work.
     </p>
+
     <p>
+      The platform is designed to help makers present their work,
+      communicate with customers, receive custom project requests,
+      and sell eligible physical products, digital products, and services.
+    </p>
+
+    <div class="notice">
       The Maker Garage mobile application is currently under development.
-    </p>
+    </div>
   </section>
 
-  <section>
+  <section id="marketplace">
     <h2>How the Marketplace Works</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>For Sellers</h3>
+        <p>
+          Sellers can create listings for eligible maker projects,
+          physical products, digital files, services, and custom work.
+          Sellers must provide accurate descriptions, pricing,
+          delivery details, and expected completion times.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>For Buyers</h3>
+        <p>
+          Buyers can discover listings, review project information,
+          communicate with sellers, submit custom requests,
+          and purchase eligible products or services.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Payments</h3>
+        <p>
+          Payments are processed through Stripe. Maker Garage may deduct
+          a clearly disclosed platform service fee from completed
+          transactions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Seller Responsibility</h3>
+        <p>
+          Sellers are responsible for accurately describing, producing,
+          shipping, and delivering the products or services offered
+          through their listings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="delivery">
+    <h2>Shipping and Delivery Policy</h2>
+
+    <h3>Physical Products</h3>
     <p>
-      Sellers can publish projects, digital products, services, and custom
-      project offers. Customers can discover listings, communicate with
-      sellers, and make purchases through the platform.
+      Sellers are responsible for packaging and shipping physical products
+      to the delivery address supplied by the buyer. Available shipping
+      costs and estimated delivery times should be presented before
+      purchase or agreed upon before the order is confirmed.
     </p>
+
     <p>
-      Payments are securely processed through Stripe. Maker Garage may charge
-      a platform service fee on completed transactions.
+      Sellers should provide valid tracking information when tracking is
+      available. Delivery times may vary depending on the seller,
+      shipping carrier, destination, product type, and order complexity.
+    </p>
+
+    <h3>Digital Products</h3>
+    <p>
+      Digital files are delivered electronically through the platform,
+      by download link, or through another delivery method clearly stated
+      in the listing.
+    </p>
+
+    <h3>Custom Projects and Services</h3>
+    <p>
+      Delivery dates, project requirements, revisions, materials,
+      and completion milestones should be agreed upon between the buyer
+      and seller before work begins.
     </p>
   </section>
 
-  <section>
-    <h2>Refund and Dispute Policy</h2>
+  <section id="refunds">
+    <h2>Refund, Return, Cancellation, and Dispute Policy</h2>
+
+    <h3>Physical Products</h3>
     <p>
-      Customers should contact Maker Garage support if an order is not
-      delivered, is significantly different from its description, or has
-      another transaction-related problem.
+      Buyers may request support when an order is not delivered, arrives
+      damaged, or is significantly different from its listing description.
+      The buyer should contact Maker Garage within 7 days after the
+      recorded delivery date and may be asked to provide photographs,
+      messages, tracking information, or other supporting evidence.
     </p>
+
+    <h3>Digital Products</h3>
     <p>
-      Refund eligibility depends on the type of product or service, the order
-      status, and the circumstances of the transaction. Digital products that
-      have already been downloaded may not be refundable except where required
-      by law.
+      Digital products are generally non-refundable after they have been
+      downloaded or accessed. A refund may be considered when the file
+      cannot be accessed, is defective, or is significantly different
+      from its listing description.
+    </p>
+
+    <h3>Custom Projects and Services</h3>
+    <p>
+      A buyer may request cancellation before the seller begins work.
+      After work has started, refund eligibility may depend on completed
+      work, purchased materials, agreed milestones, communications,
+      and the circumstances of the order.
+    </p>
+
+    <h3>Returns</h3>
+    <p>
+      When a physical-product return is approved, the buyer must follow
+      the return instructions provided by Maker Garage or the seller.
+      Unless otherwise required by law, return shipping responsibility
+      will depend on the reason for the return.
+    </p>
+
+    <h3>Disputes</h3>
+    <p>
+      Buyers should contact Maker Garage support before filing a payment
+      dispute with their bank. Maker Garage may review listing details,
+      order records, messages, delivery evidence, photographs,
+      and other relevant information.
+    </p>
+
+    <p>
+      Approved refunds are returned to the original payment method.
+      The time required for the refund to appear depends on Stripe,
+      the card network, and the buyer’s financial institution.
     </p>
   </section>
 
-  <section>
+  <section id="privacy">
     <h2>Privacy Policy</h2>
+
     <p>
-      Maker Garage may collect information needed to operate the marketplace,
-      including account information, transaction details, communications, and
-      technical information.
+      Maker Garage may collect information required to operate and protect
+      the marketplace, including names, email addresses, account details,
+      listing information, transaction details, communications,
+      uploaded content, device information, and technical usage data.
     </p>
+
+    <p>
+      This information may be used to provide customer support,
+      process transactions, prevent fraud, enforce platform policies,
+      improve the service, communicate with users, and comply with
+      applicable legal obligations.
+    </p>
+
     <p>
       Payment card information is processed by Stripe and is not stored
-      directly by Maker Garage. Personal information is used to provide,
-      secure, and improve the service and to comply with legal obligations.
+      directly by Maker Garage. Stripe may collect and process payment,
+      identity, tax, banking, and verification information according to
+      its own policies.
+    </p>
+
+    <p>
+      Maker Garage does not sell payment card information.
+      Information may be shared with service providers, payment processors,
+      fraud-prevention providers, government authorities, or other parties
+      when reasonably necessary to operate the service or comply with law.
     </p>
   </section>
 
-  <section>
+  <section id="terms">
     <h2>Terms of Service</h2>
+
     <p>
-      Users must provide accurate information and may not use Maker Garage for
-      illegal, fraudulent, deceptive, dangerous, or prohibited transactions.
+      By using Maker Garage, users agree to provide accurate information,
+      comply with applicable laws, communicate honestly, and use the
+      platform only for lawful transactions.
     </p>
+
+    <h3>Seller Obligations</h3>
+    <ul class="policy-list">
+      <li>Accurately describe products, services, materials, and condition.</li>
+      <li>Clearly disclose prices, delivery times, and relevant limitations.</li>
+      <li>Deliver orders according to the listing and buyer agreement.</li>
+      <li>Maintain required licenses, permissions, and legal compliance.</li>
+      <li>Respond to reasonable order and support requests.</li>
+    </ul>
+
+    <h3>Buyer Obligations</h3>
+    <ul class="policy-list">
+      <li>Provide accurate billing, contact, and delivery information.</li>
+      <li>Review listing details before completing a purchase.</li>
+      <li>Communicate legitimate concerns in a timely manner.</li>
+      <li>Not misuse refunds, chargebacks, or dispute procedures.</li>
+    </ul>
+
+    <h3>Prohibited Activity</h3>
     <p>
-      Sellers are responsible for accurately describing and delivering their
-      products or services. Maker Garage may review, suspend, or remove
-      accounts and listings that violate platform rules or applicable law.
+      Users may not use Maker Garage for fraudulent, deceptive, illegal,
+      infringing, unsafe, or prohibited transactions. Listings may not
+      include illegal products, stolen goods, counterfeit goods,
+      regulated weapons, hazardous materials, unauthorized copyrighted
+      content, or other items prohibited by law or payment-provider rules.
+    </p>
+
+    <p>
+      Maker Garage may review, restrict, suspend, or remove listings
+      and accounts that violate platform policies, payment-provider rules,
+      or applicable law.
+    </p>
+
+    <h3>Marketplace Role</h3>
+    <p>
+      Maker Garage provides technology that helps buyers and sellers
+      discover listings, communicate, and process eligible transactions.
+      Sellers remain responsible for the accuracy, quality, safety,
+      legality, and fulfillment of their listings.
     </p>
   </section>
 
-  <section>
-    <h2>Contact</h2>
+  <section id="contact" class="contact-box">
+    <h2>Contact Maker Garage</h2>
+
     <p>
-      For customer support, transaction questions, or business inquiries:
+      Contact us for customer support, transaction questions,
+      refund requests, privacy questions, or business inquiries.
     </p>
-    <p>
-      Email:
-      <a href="123321123321m6o@gmail.com">maker9garage@gmail.com</a>
-    </p>
+
+    <a
+      class="contact-email"
+      href="mailto:maker9garage@gmail.com"
+    >
+      maker9garage@gmail.com
+    </a>
   </section>
 
 </main>
 
 <footer>
-  <p>Maker Garage is operated by Brandloom LLC.</p>
+  <p><strong>Maker Garage is operated by Brandloom LLC.</strong></p>
+  <p>El Cajon, California, United States</p>
   <p>&copy; 2026 Brandloom LLC. All rights reserved.</p>
 </footer>
 
