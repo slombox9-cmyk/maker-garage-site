@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maker Garage Support" />
+  <title>Maker Garage Support</title>
+  <style>
+    :root{--bg:#0f0f0f;--card:#181818;--text:#f4f4f4;--muted:#aaa;--border:#353535;--accent:#ff5a00;--max:980px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+    .wrap{width:min(92%,var(--max));margin:auto}
+    header{border-bottom:1px solid var(--border);position:sticky;top:0;background:#0f0f0ff2;backdrop-filter:blur(10px);z-index:5}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.12em;text-transform:uppercase}.brand span{color:var(--accent)}
+    a{color:inherit}.nav a{text-decoration:none;color:var(--muted)}
+    .hero{padding:100px 0 70px;text-align:center}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    h1{font-size:clamp(44px,8vw,78px);line-height:1;margin:14px 0 20px}.hero p{max-width:720px;margin:auto;color:var(--muted);font-size:18px}
+    .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid var(--border);background:var(--card)}
+    .primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    section{padding:30px 0 65px}h2{font-size:30px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card,details,.contact{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}.card p,details p,.contact p{color:var(--muted)}
+    .faq{display:grid;gap:12px}summary{font-weight:700;cursor:pointer}.contact{text-align:center}
+    footer{border-top:1px solid var(--border);padding:30px 0 45px;color:var(--muted)}.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer a{color:var(--muted);margin-left:16px}
+    @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">Maker <span>Garage</span></div><a href="#contact">Contact Support</a></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Support</div>
+<h1>How can we help?</h1>
+<p>Get help with Maker Garage accounts, projects, orders, payments, selling, custom build requests, and other app questions.</p>
+<div class="actions">
+<a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=maker9garage@gmail.com&su=Maker%20Garage%20Support">Email Support</a>
+<a class="btn" href="#faq">View FAQs</a>
+</div>
+</div></section>
+
+<section><div class="wrap"><h2>Support topics</h2><div class="grid">
+<div class="card"><h3>Account & Sign In</h3><p>Help with account access, sign-in, profiles, and settings.</p></div>
+<div class="card"><h3>Projects & Reels</h3><p>Help publishing projects, uploading media, and project Reels.</p></div>
+<div class="card"><h3>Orders & Shipping</h3><p>Questions about purchases, tracking, delivery, returns, and buyer protection.</p></div>
+<div class="card"><h3>Selling & Payouts</h3><p>Help with Stripe setup, selling, earnings, and payout status.</p></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap"><h2>Frequently asked questions</h2><div class="faq">
+<details><summary>How do I contact Maker Garage support?</summary><p>Use the Email Support button. Include a short description of your issue. Never send passwords or complete payment card numbers.</p></details>
+<details><summary>Where can I check my order status?</summary><p>Open Maker Garage, go to Orders, and select the order to view its current status.</p></details>
+<details><summary>How do seller payouts work?</summary><p>Eligible sellers complete Stripe onboarding. Payout timing depends on order status, delivery, buyer protection, and any open return, report, or dispute.</p></details>
+<details><summary>How do I delete my account?</summary><p>Use the account deletion option in Maker Garage settings. If you cannot access your account, contact support.</p></details>
+</div></div></section>
+
+<section id="contact"><div class="wrap"><div class="contact">
+<h2>Still need help?</h2><p>Contact Maker Garage support and include the order ID when your question is order-related.</p>
+<a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=maker9garage@gmail.com&su=Maker%20Garage%20Support">Contact Support</a>
+</div></div></section>
+</main>
+<footer><div class="wrap footer"><div>© 2026 Maker Garage. All rights reserved.</div><div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div></div></footer>
+</body>
+</html>
